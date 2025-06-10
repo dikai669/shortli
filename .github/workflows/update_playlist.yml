@@ -1,9 +1,9 @@
-name: Update Playlist (New)
+name: Update Playlist
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "0 11,17 * * *"
+    - cron: "0 11,17 * * *"  # Запуск в 11:00 и 17:00 UTC
+  workflow_dispatch:         # Возможность ручного запуска
 
 jobs:
   update_playlist:
@@ -36,6 +36,7 @@ jobs:
           if git diff --quiet noxx.m3u; then
             echo "No changes to commit."
           else
+            echo "Changes detected in noxx.m3u."
             git add noxx.m3u
             git commit -m "Update playlist"
             git push origin main
