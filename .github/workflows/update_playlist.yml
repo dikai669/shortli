@@ -1,0 +1,42 @@
+name: Update Playlist (New)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 11,17 * * *"
+
+jobs:
+  update_playlist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run update script
+        run: |
+          python update_playlist.py
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          if git diff --quiet noxx.m3u; then
+            echo "No changes to commit."
+          else
+            git add noxx.m3u
+            git commit -m "Update playlist"
+            git push origin main
+          fi
