@@ -198,6 +198,10 @@ http://178.217.72.66:8080/Match_Futbol_2_HD/video.m3u8
 http://77.235.1.19:8000/play/a004/index.m3u8
 #EXTINF:-1 tvg-id="match-football3" group-title="Спортивные", Матч Футбол 3 HD
 http://178.217.72.66:8080/Match_Futbol_3_HD/video.m3u8
+#EXTINF:-1 tvg-id="setanta-sports" group-title="Спортивные", Setanta Sports 1 HD
+https://vod.splay.uz/live_splay/original/Setanta1HD/mono.ts.m3u8
+#EXTINF:-1 tvg-id="setanta-sports-plus" group-title="Спортивные", Setanta Sports 2 HD
+https://vod.splay.uz/live_splay/original/Setanta2HD/mono.ts.m3u8
 #EXTINF:-1 tvg-id="inter-it" group-title="Спортивные", Inter TV
 https://ilglobotv-live.akamaized.net/channels/InterTV/Live.m3u8
 #EXTINF:-1 tvg-id="sport1-baltic" group-title="Спортивные", Sport 1 Baltic
